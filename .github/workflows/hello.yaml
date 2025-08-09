@@ -1,0 +1,14 @@
+name: Say Hello
+
+on:
+  push:
+    branches: 
+      - main
+  workflow_dispatch:   # 注意這裡是小寫開頭
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 顯示問候
+        run: echo "Hello, GitHub Actions!"
