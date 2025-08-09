@@ -1,0 +1,28 @@
+name: Fetch Cnyes News
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install requests pandas
+
+      - name: Run script
+        run: python cnyes.py
+      - name: save csv
+        run: |
+          git add .
+          git commit -m"更新鉅亨網新聞"
+          got push origin main
