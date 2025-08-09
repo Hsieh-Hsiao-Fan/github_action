@@ -25,4 +25,4 @@ jobs:
         run: |
           git add .
           git commit -m"更新鉅亨網新聞"
-          got push origin main
+          git push origin main
